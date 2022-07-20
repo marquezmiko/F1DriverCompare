@@ -12,7 +12,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "react-dev": "webpack --mode devlopment --watch",
+    "react-dev": "webpack --mode development --watch",
+    "react-babel": "babel client/babel-src --out-dir client/dist/compiled --presets=@babel/preset-react --source-maps inline --watch",
     "server-dev": "npx nodemon server/index.js"
   },
   "repository": {
@@ -24,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/marquezmiko/rpp2204-mvp/issues"
   },
-  "homepage": "https://github.com/marquezmiko/rpp2204-mvp#readme"
+  "homepage": "https://github.com/marquezmiko/rpp2204-mvp#readme",
+  "devDependencies": {
+    "webpack-cli": "^4.10.0"
+  }
 }
