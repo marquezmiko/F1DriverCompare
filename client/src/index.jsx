@@ -7,7 +7,10 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      drivers: []
+      drivers: [
+        {id: 1, name:'Pierre Gasly'},
+        {id: 2, name:'Yuki Tsunoda'}
+      ]
     }
   }
 
