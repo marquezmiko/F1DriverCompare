@@ -33,8 +33,10 @@ class Driver extends React.Component {
         isLoaded: true,
         error
       });
-    }
-    );
+    })
+    .then(() => {
+      console.log('Driver promise chain complete');
+    });
   }
 
   handleClick() {
@@ -48,12 +50,41 @@ class Driver extends React.Component {
   }
 
   render() {
+    console.log('rendering driver');
+    if (this.state.isLoaded) {
+      var driverInfo = this.state.items.Drivers[0];
+      return (
+        <div id="driver">
+        {/* <ul onClick={this.handleClick}>{this.props.name}</ul> */}
+        {this.props.name}
+        <table id="driverInfo">
+          <thead>
+            <tr>
+              <th>Number</th>
+              <th>Nationality</th>
+              <th>DOB</th>
+              <th>Wiki</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{driverInfo.permanentNumber}</td>
+              <td>{driverInfo.nationality}</td>
+              <td>{driverInfo.dateOfBirth}</td>
+              <td>{driverInfo.url}</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      )
+    }
     return (
       <div id="driver">
         {/* <ul onClick={this.handleClick}>{this.props.name}</ul> */}
-        <ul>{this.props.name}</ul>
+        {this.props.name}
       </div>
-    )
+    );
+
   }
 }
 
