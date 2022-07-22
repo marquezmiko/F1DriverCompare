@@ -23,12 +23,16 @@ app.post('/driver', function(req, res) {
   apiCaller(nameSplit[1])
   .then((data) => {
     console.log('I guess we did it?');
+    //Save to db
+    //return info
+    res.json(data);
+    //res.status(200).end();
   })
   .catch((err) => {
     console.error(err);
   })
 
-  res.status(200).end();
+
 
   //call API
   // apiCaller()

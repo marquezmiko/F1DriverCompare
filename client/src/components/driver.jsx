@@ -22,6 +22,7 @@ class Driver extends React.Component {
     fetch('http://localhost:8080/driver', requestOptions)
     .then(res => res.json())
     .then((data) => {
+      console.log('JSX WORLD: ' + JSON.stringify(data));
       this.setState({
         isLoaded: true,
         items: data
