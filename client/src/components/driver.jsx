@@ -1,16 +1,39 @@
 import React from 'react';
-import {apiCaller} from '../api-caller.js';
+// import {apiCaller} from '../api-caller.js';
 
 class Driver extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      twitter: null,
-      instagram: null,
-      tiktok: null
+      error: null,
+      isLoaded: false,
+      items: []
     }
 
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ driver: this.props.name})
+    };
+    fetch('http://localhost:8080/driver', requestOptions)
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({
+        isLoaded: true,
+        items: data
+      });
+    },
+    (error) => {
+      this.setState({
+        isLoaded: true,
+        error
+      });
+    }
+    );
   }
 
   handleClick() {
@@ -26,7 +49,8 @@ class Driver extends React.Component {
   render() {
     return (
       <div id="driver">
-        <ul onClick={this.handleClick}>{this.props.name}</ul>
+        {/* <ul onClick={this.handleClick}>{this.props.name}</ul> */}
+        <ul>{this.props.name}</ul>
       </div>
     )
   }
