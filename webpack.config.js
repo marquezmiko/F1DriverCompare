@@ -1,16 +1,15 @@
-const path = require('path');
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-//Webpack configuration to serve assets
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 var SRC_DIR = path.join(__dirname, 'client/src');
-
-// Update this next variable to point to the folder
-// where webpack will write the final bundled file.
-// Have this variable resolve to the "dist" folder inside of "./client"
 var DIST_DIR = path.join(__dirname, 'client/dist');
 
-
-module.exports = {
+//module.exports
+export default {
 
   mode: 'development',
   entry: `${SRC_DIR}/index.jsx`,

@@ -1,5 +1,5 @@
 import React from 'react';
-// import {apiCaller} from '../api-caller.js';
+import DriverInfo from './DriverInfo.jsx';
 
 class Driver extends React.Component {
   constructor(props) {
@@ -52,35 +52,15 @@ class Driver extends React.Component {
   render() {
     console.log('rendering driver');
     if (this.state.isLoaded) {
-      var driverInfo = this.state.items.Drivers[0];
       return (
         <div id="driver">
-        {/* <ul onClick={this.handleClick}>{this.props.name}</ul> */}
         {this.props.name}
-        <table id="driverInfo">
-          <thead>
-            <tr>
-              <th>Number</th>
-              <th>Nationality</th>
-              <th>DOB</th>
-              <th>Wiki</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{driverInfo.permanentNumber}</td>
-              <td>{driverInfo.nationality}</td>
-              <td>{driverInfo.dateOfBirth}</td>
-              <td>{driverInfo.url}</td>
-            </tr>
-          </tbody>
-        </table>
+          <DriverInfo driverInfo={this.state.items.Drivers[0]}/>
         </div>
       )
     }
     return (
       <div id="driver">
-        {/* <ul onClick={this.handleClick}>{this.props.name}</ul> */}
         {this.props.name}
       </div>
     );
