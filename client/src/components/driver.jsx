@@ -1,13 +1,18 @@
 import React from 'react';
 import DriverInfo from './DriverInfo.jsx';
+import RaceInfo from './RaceInfo.jsx';
+import gaslyPhoto from '../images/gasly.png';
+import tsunodaPhoto from '../images/tsunoda.png';
 
 class Driver extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
-      isLoaded: false,
-      items: []
+      driverInfoIsLoaded: false,
+      raceInfoIsLoaded: false,
+      driverItems: [],
+      raceItems: []
     }
 
     this.handleClick = this.handleClick.bind(this);
@@ -22,10 +27,10 @@ class Driver extends React.Component {
     fetch('http://localhost:8080/driver', requestOptions)
     .then(res => res.json())
     .then((data) => {
-      console.log('JSX WORLD: ' + JSON.stringify(data));
+      // console.log('JSX WORLD: ' + JSON.stringify(data));
       this.setState({
-        isLoaded: true,
-        items: data
+        driverInfoIsLoaded: true,
+        driverItems: data
       });
     },
     (error) => {
@@ -33,35 +38,55 @@ class Driver extends React.Component {
         isLoaded: true,
         error
       });
-    })
-    .then(() => {
-      console.log('Driver promise chain complete');
     });
   }
 
-  handleClick() {
+  handleClick(e) {
     console.log('click!');
-
-    apiCaller('website',this.props.name)
+    fetch('http://localhost:8080/raceInfo?name='+this.props.name+'&year=2022')
+    .then(res => res.json())
     .then((data) => {
-      console.log('api response: ' + JSON.stringify(data));
+      this.setState({
+        raceInfoIsLoaded: true,
+        raceItems: data
+      })
     });
 
   }
 
   render() {
     console.log('rendering driver');
-    if (this.state.isLoaded) {
+    let image;
+    if (this.props.name === 'Pierre Gasly') {
+      image = <img src={gaslyPhoto}/>
+    } else if (this.props.name === 'Yuki Tsunoda') {
+      image = <img src={tsunodaPhoto}/>
+    }
+
+    if (this.state.driverInfoIsLoaded && !this.state.raceInfoIsLoaded) {
       return (
         <div id="driver">
-        {this.props.name}
-          <DriverInfo driverInfo={this.state.items.Drivers[0]}/>
+          {image}
+          <h3>{this.props.name}</h3>
+          <DriverInfo driverInfo={this.state.driverItems.Drivers[0]}/>
+          <button onClick={this.handleClick}>Race Info</button>
+        </div>
+      )
+    } else if (this.state.driverInfoIsLoaded && this.state.raceInfoIsLoaded) {
+      return (
+        <div id="driver">
+          {image}
+          <h3>{this.props.name}</h3>
+          <DriverInfo driverInfo={this.state.driverItems.Drivers[0]}/>
+          <button onClick={this.handleClick}>Race Info</button>
+          <RaceInfo raceInfo={this.state.raceItems}/>
         </div>
       )
     }
+
     return (
       <div id="driver">
-        {this.props.name}
+        <h3>{this.props.name}</h3>
       </div>
     );
 

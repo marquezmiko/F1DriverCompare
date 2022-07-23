@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 
-export function apiCaller (driver) {
-  console.log('api call: ' + driver);
+export function getDriverInfo (driver) {
+  console.log('api driver call');
   return fetch('https://ergast.com/api/f1/drivers/' + driver + '.json')
     .then(response => response.json())
     .then((data) => {
@@ -11,4 +11,13 @@ export function apiCaller (driver) {
     .catch((err) => {console.log(err)});
 }
 
-//module.exports.apiCaller = apiCaller;
+export function getRaceInfo (driver, year) {
+  console.log('api race call');
+  return fetch('https://ergast.com/api/f1/'+year+'/drivers/'+driver+'/results.json')
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data.MRData.RaceTable);
+      return data.MRData.RaceTable;
+    })
+    .catch((err) => {console.log(err)});
+}

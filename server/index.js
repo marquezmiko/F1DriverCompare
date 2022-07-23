@@ -1,4 +1,4 @@
-import {apiCaller} from './api-caller.js';
+import {getDriverInfo, getRaceInfo} from './api-caller.js';
 import express from 'express';
 import path from 'path';
 import db from '../db/index.js';
@@ -20,7 +20,7 @@ app.post('/driver', function(req, res) {
   console.log(req.body);
   var nameSplit = req.body.driver.split(' ');
 
-  apiCaller(nameSplit[1])
+  getDriverInfo(nameSplit[1])
   .then((data) => {
     console.log('I guess we did it?');
     //Save to db
@@ -30,26 +30,19 @@ app.post('/driver', function(req, res) {
   })
   .catch((err) => {
     console.error(err);
+  });
+});
+
+app.get('/raceInfo', function(req, res) {
+  console.log('raceinfo');
+  getRaceInfo(req.query.name.split(" ")[1], req.query.year)
+  .then((data) => {
+    console.log('We did it again?');
+    res.json(data);
   })
-
-
-
-  //call API
-  // apiCaller()
-  // .then((response) => {
-  //   var driver = {
-  //     name: req.name,
-  //     number: response.number,
-  //     nationality: response.nationality,
-  //     DOB: response.dob,
-  //     wikipedia: response.wikipedia
-  //   }
-  //   db.save(driver);
-  // })
-  // .catch((err) => {
-  //   console.error(err);
-  // })
-
+  .catch((err) => {
+    console.error(err);
+  });
 });
 
 app.listen(PORT, () => {

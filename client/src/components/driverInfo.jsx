@@ -13,20 +13,22 @@ class DriverInfo extends React.Component {
     return (
     <div id="driverInfo">
       <table id="driverInfo">
-        <thead>
-          <tr>
-            <th>Number</th>
-            <th>Nationality</th>
-            <th>DOB</th>
-            <th>Wiki</th>
-          </tr>
-        </thead>
         <tbody>
           <tr>
+            <th>Number</th>
             <td>{driverInfo.permanentNumber}</td>
+          </tr>
+          <tr>
+            <th>Nationality</th>
             <td>{driverInfo.nationality}</td>
+          </tr>
+          <tr>
+            <th>DOB</th>
             <td>{driverInfo.dateOfBirth}</td>
-            <td>{driverInfo.url}</td>
+          </tr>
+          <tr>
+            <th>Wiki</th>
+            <td><a href={driverInfo.url}>wiki</a></td>
           </tr>
         </tbody>
       </table>

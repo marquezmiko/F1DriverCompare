@@ -1,0 +1,28 @@
+body {
+  /* font-family: "Titillium Web"; */
+  font-size: 17px;
+  line-height: 23px;
+  letter-spacing: .2px;
+  background: #fff;
+  background-size: 100% auto;
+}
+
+#driverOne{
+  float:left;
+  /* background:blue; */
+}
+
+#driverTwo{
+  float:left;
+   /* background:green; */
+}​
+
+table, th, td {
+  border: 1px solid black;
+}
+
+img{
+  max-width: 50%;
+  max-height: 50%;
+  display: block; /* remove extra space below image */
+}
