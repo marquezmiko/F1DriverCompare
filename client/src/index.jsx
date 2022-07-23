@@ -3,14 +3,17 @@ import reactDom from 'react-dom';
 import DriverList from './components/DriverList.jsx';
 import "@fontsource/titillium-web";
 
+import guentherPhoto from './images/guenther.png';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       drivers: [
-        {id: 1, name:'Pierre Gasly', twitter: '537951506', picture:'https://www.formula1.com/content/dam/fom-website/drivers/P/PIEGAS01_Pierre_Gasly/piegas01.png.transform/2col-retina/image.png'},
-        {id: 2, name:'Yuki Tsunoda', twitter: '759658867177299972', picture:'https://www.formula1.com/content/dam/fom-website/drivers/Y/YUKTSU01_Yuki_Tsunoda/yuktsu01.png.transform/2col-retina/image.png'}
+        {id: 1, name:'Pierre Gasly', twitter: '537951506'},
+        {id: 2, name:'Yuki Tsunoda', twitter: '759658867177299972'},
+        {id: 3, name:'Daniel Ricciardo', twitter: '214413743'}
       ]
     }
   }
@@ -22,7 +25,8 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <h1>F1 Driver Comparison</h1>
+        <h1 id="title">F1 Head-to-Head</h1>
+        <img id="guenther" src={guentherPhoto}/>
         <DriverList drivers={this.state.drivers}/>
       </div>
     )

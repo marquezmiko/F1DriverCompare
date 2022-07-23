@@ -2,8 +2,11 @@ import React from 'react';
 import DriverInfo from './DriverInfo.jsx';
 import RaceInfo from './RaceInfo.jsx';
 import TwitterInfo from './TwitterInfo.jsx';
+
+//Local photos for now
 import gaslyPhoto from '../images/gasly.png';
 import tsunodaPhoto from '../images/tsunoda.png';
+import ricciardoPhoto from '../images/ricciardo.png';
 
 class Driver extends React.Component {
   constructor(props) {
@@ -15,9 +18,11 @@ class Driver extends React.Component {
       twitterInfoIsLoaded: false,
       driverItems: [],
       raceItems: [],
-      twitterItems: []
+      twitterItems: [],
+      raceYear: ""
     }
 
+    this.handleChange = this.handleChange.bind(this);
     this.handleRaceInfoClick = this.handleRaceInfoClick.bind(this);
     this.handleTwitterInfoClick = this.handleTwitterInfoClick.bind(this);
   }
@@ -69,6 +74,10 @@ class Driver extends React.Component {
     });
   }
 
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
 
   render() {
     console.log('rendering driver');
@@ -77,6 +86,8 @@ class Driver extends React.Component {
       image = <img src={gaslyPhoto}/>
     } else if (this.props.name === 'Yuki Tsunoda') {
       image = <img src={tsunodaPhoto}/>
+    } else if (this.props.name === 'Daniel Ricciardo') {
+      image = <img src={ricciardoPhoto}/>
     }
 
     if (this.state.driverInfoIsLoaded && !this.state.raceInfoIsLoaded) {
@@ -85,6 +96,7 @@ class Driver extends React.Component {
           {image}
           <h3>{this.props.name}</h3>
           <DriverInfo driverInfo={this.state.driverItems.Drivers[0]}/>
+          {/* <input type="text" value={this.state.raceYear} onChange={this.handleChange} /> */}
           <button onClick={this.handleRaceInfoClick}>Race Info</button>
           <button onClick={this.handleTwitterInfoClick}>Twitter Info</button>
         </div>
@@ -96,8 +108,8 @@ class Driver extends React.Component {
           <h3>{this.props.name}</h3>
           <DriverInfo driverInfo={this.state.driverItems.Drivers[0]}/>
           <button onClick={this.handleRaceInfoClick}>Race Info</button>
-          <button onClick={this.handleTwitterInfoClick}>Twitter Info</button>
           <RaceInfo raceInfo={this.state.raceItems}/>
+          <button onClick={this.handleTwitterInfoClick}>Twitter Info</button>
         </div>
       )
     } else if (this.state.driverInfoIsLoaded && this.state.raceInfoIsLoaded && this.state.twitterInfoIsLoaded) {

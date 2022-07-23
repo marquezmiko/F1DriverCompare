@@ -18,11 +18,12 @@ app.use(express.static(path.join(__dirname, '../client/dist/')));
 app.post('/driver', function(req, res) {
   console.log('POST to /driver');
   console.log(req.body);
+
+  //Split first and last name, api only uses last name
   var nameSplit = req.body.driver.split(' ');
 
   getDriverInfo(nameSplit[1])
   .then((data) => {
-    //Save to db
     res.json(data);
   })
   .catch((err) => {
@@ -45,8 +46,6 @@ app.get('/twitterInfo', function(req, res) {
   console.log('twitterInfo');
   getTwitterInfo(req.query.id)
   .then((data) => {
-    console.log('We did it again?');
-    // console.log(data);
     res.json(data).end();
   })
   .catch((err) => {

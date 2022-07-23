@@ -10,6 +10,7 @@ class RaceInfo extends React.Component {
 
   render() {
     var raceInfo = this.props.raceInfo;
+
     return (
     <div id="raceInfo">
       <table id="raceInfo">
@@ -26,6 +27,7 @@ class RaceInfo extends React.Component {
       </table>
     </div>
     )
+
   }
 }
 
