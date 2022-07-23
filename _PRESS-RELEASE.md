@@ -17,7 +17,7 @@ Once the project moves into development, the press release can be used as a touc
  -->
 
 ## Heading ##
-  > F1 Driver Compare
+  > F1 Head-to-Head
 
 ## Sub-Heading ##
   > A side-by-side comparison tool for F1 fans.
@@ -29,16 +29,16 @@ Once the project moves into development, the press release can be used as a touc
   > Combining stats of drivers from multiple sources online.
 
 ## Solution ##
-  > This website will be connected to multiple APIs, from the primary ergast f1 API to Twitter analytics
+  > This website will be connected to multiple APIs, from the primary ergast f1 API to Twitter analytics and Instagram recent photos.
 
 ## Quote from You ##
-  > A true way to settle if Schumacher or Hamilton is the goat.
+  > A true way to settle if Schumacher or Hamilton is the goat. And how Netflix's Drive to Survive boosted Ricciardo's populatrity.
 
 ## How to Get Started ##
   > Pick two drivers from the dropdown to get started, then toggle the buttons of the specific stats you'd like to compare.
 
 ## Customer Quote ##
-  > "Thanks to F1 Driver Compare, I was able to finally tell which driver has the best meme game." - Lando Norris.
+  > "Thanks to F1 Driver Compare, I was able to finally tell which driver has the best memes on social media." - Lando Norris.
 
 ## Closing and Call to Action ##
   > Get to racing driver against driver. Lights out and away we go...
