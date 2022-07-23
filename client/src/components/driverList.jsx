@@ -21,10 +21,10 @@ class DriverList extends React.Component {
         <h3>Drivers</h3>
         <ul>
           <div id="driverOne">
-            <Driver key={this.state.driverOne.id} name={this.state.driverOne.name} pic={this.state.driverOne.picture}/>
+            <Driver key={this.state.driverOne.id} name={this.state.driverOne.name} pic={this.state.driverOne.picture} twitter={this.state.driverOne.twitter}/>
           </div>
           <div id="driverTwo">
-            <Driver key={this.state.driverTwo.id} name={this.state.driverTwo.name} pic={this.state.driverTwo.picture}/>
+            <Driver key={this.state.driverTwo.id} name={this.state.driverTwo.name} pic={this.state.driverTwo.picture} twitter={this.state.driverTwo.twitter}/>
           </div>
           {/* {props.drivers.map(driver => {
             return (

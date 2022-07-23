@@ -9,8 +9,8 @@ class App extends React.Component {
 
     this.state = {
       drivers: [
-        {id: 1, name:'Pierre Gasly', picture:'https://www.formula1.com/content/dam/fom-website/drivers/P/PIEGAS01_Pierre_Gasly/piegas01.png.transform/2col-retina/image.png'},
-        {id: 2, name:'Yuki Tsunoda', picture:'https://www.formula1.com/content/dam/fom-website/drivers/Y/YUKTSU01_Yuki_Tsunoda/yuktsu01.png.transform/2col-retina/image.png'}
+        {id: 1, name:'Pierre Gasly', twitter: '537951506', picture:'https://www.formula1.com/content/dam/fom-website/drivers/P/PIEGAS01_Pierre_Gasly/piegas01.png.transform/2col-retina/image.png'},
+        {id: 2, name:'Yuki Tsunoda', twitter: '759658867177299972', picture:'https://www.formula1.com/content/dam/fom-website/drivers/Y/YUKTSU01_Yuki_Tsunoda/yuktsu01.png.transform/2col-retina/image.png'}
       ]
     }
   }

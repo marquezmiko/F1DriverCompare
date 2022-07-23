@@ -1,4 +1,4 @@
-import {getDriverInfo, getRaceInfo} from './api-caller.js';
+import {getDriverInfo, getRaceInfo, getTwitterInfo} from './api-caller.js';
 import express from 'express';
 import path from 'path';
 import db from '../db/index.js';
@@ -22,11 +22,8 @@ app.post('/driver', function(req, res) {
 
   getDriverInfo(nameSplit[1])
   .then((data) => {
-    console.log('I guess we did it?');
     //Save to db
-    //return info
     res.json(data);
-    //res.status(200).end();
   })
   .catch((err) => {
     console.error(err);
@@ -37,13 +34,25 @@ app.get('/raceInfo', function(req, res) {
   console.log('raceinfo');
   getRaceInfo(req.query.name.split(" ")[1], req.query.year)
   .then((data) => {
-    console.log('We did it again?');
-    res.json(data);
+    res.json(data).end();
   })
   .catch((err) => {
     console.error(err);
   });
 });
+
+app.get('/twitterInfo', function(req, res) {
+  console.log('twitterInfo');
+  getTwitterInfo(req.query.id)
+  .then((data) => {
+    console.log('We did it again?');
+    // console.log(data);
+    res.json(data).end();
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+})
 
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
