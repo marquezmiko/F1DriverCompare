@@ -18,7 +18,7 @@ class RaceInfo extends React.Component {
             return (
               <tr key={race.round}>
                 <th>{race.raceName}</th>
-                <td>{race.Results[0].position}</td>
+                <td>{race.Results[0].positionText}</td>
               </tr>
             )
           })}
