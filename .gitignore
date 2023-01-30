@@ -1,7 +1,7 @@
 ### node etc ###
 
 # Pics
-*.png
+# *.png
 
 # Logs
 logs
